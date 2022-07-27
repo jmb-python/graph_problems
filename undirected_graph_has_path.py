@@ -1,7 +1,8 @@
 from queue import Queue
 
 """
-Given a list of edges (E) for an undirected graph, each representing a connection between two nodes, and given two specific nodes, detect if there is a path between them.
+Given a list of edges (E) for an undirected graph, each representing a connection between two nodes, and given two specific nodes, 
+detect if there is a path between them.
 
 - First is important to conver the edges structure into an adjacency list graph representation, both in code and graphical (as below):
 
@@ -54,21 +55,21 @@ def convert_edges_to_graph(edges):
 
 def has_path_undirected(graph, start, destination):
     #Keeps track of visited nodes, to avoid cycles, and enhance performance
-    visited = {}
-    queue = Queue(0)
-    queue.put(start)
-
-    while queue.qsize() > 0:
-        current = queue.get()
+    visited = []
+    queue = []
+    queue.append(start)
+    visited.append(start)
+    
+    while queue:
+        current = queue.pop()
 
         if destination == current:
             return True
 
-        if current not in visited:
-            visited[current] = True
-
-            for neighbour in graph[current]:
-                queue.put(neighbour)
+        for neighbour in graph[current]:
+          if neighbour not in visited:
+            visited.append(neighbour)
+            queue.append(neighbour)
 
     return False
 
