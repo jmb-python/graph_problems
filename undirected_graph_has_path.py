@@ -1,5 +1,3 @@
-from queue import Queue
-
 """
 Given a list of edges (E) for an undirected graph, each representing a connection between two nodes, and given two specific nodes, 
 detect if there is a path between them.
