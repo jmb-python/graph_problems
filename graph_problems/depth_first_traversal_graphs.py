@@ -26,7 +26,6 @@ def depth_first_traverse(graph, start_node):
 
 # Recursive version of the algorithm, but if the Graph is massive, this might incurr in StackOverflow type of errors.
 def depth_first_traverse_recursive(graph, node):
-    print(node)
     
     for neighbour in graph[node]:
         depth_first_traverse_recursive(graph, neighbour)
